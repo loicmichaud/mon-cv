@@ -15,8 +15,38 @@
     header { background: linear-gradient(180deg, #36a9e1 0%, #083e6c 100%); padding: 40px 20px; color: #fff; text-align: center; position: relative; }
     header h1 { font-size: 3em; margin-bottom: 10px; }
     header p { font-size: 1.25em; opacity: 0.9; }
-    header .photo { width: 160px; height: 160px; border: 8px solid #fff; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); overflow: hidden; margin: 0 auto 20px; }
-    header .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Photo hexagonale améliorée */
+    .photo {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+    .photo::before {
+      /* contour en dégradé */
+      content: "";
+      position: absolute;
+      top: -6px; left: -6px;
+      width: calc(100% + 12px);
+      height: calc(100% + 12px);
+      background: linear-gradient(135deg, #ffffff, #c0c0c0);
+      clip-path: inherit;
+      z-index: -1;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) brightness(1.05) contrast(1.1);
+      transition: transform 0.4s ease;
+    }
+    .photo:hover img {
+      transform: scale(1.08);
+    }
+
     header .contacts { position: absolute; right: 20px; top: 40px; text-align: right; }
     header .contacts div { margin-bottom: 8px; display: flex; align-items: center; justify-content: flex-end; }
     header .contacts div span { margin-left: 6px; font-size: 0.95em; }
@@ -32,10 +62,7 @@
     .skill-category { margin-bottom: 20px; }
 
     /* Experience & Education cards */
-    .card {
-      background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 24px;
-    }
+    .card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 24px; }
     .card h3 { margin-bottom: 6px; font-size: 1.25em; }
     .card .meta { font-size: 0.9em; color: #555; margin-bottom: 12px; }
     .card ul { list-style: disc inside; }
@@ -47,14 +74,15 @@
 <body>
   <header>
     <div class="photo">
-      <img src="pp.jpg" alt="Photo de Loïc Michaud">
+      <img src="photo.jpg" alt="Photo de Loïc Michaud">
     </div>
     <h1>Loïc&nbsp;Michaud</h1>
     <p>Étudiant</p>
     <div class="contacts">
       <div>📞<span>+33 6 02 05 97 05</span></div>
       <div>🏠<span>16 Place Marulaz, 25000 Besançon</span></div>
-      <div>✉️<span>loicmichaudpro@gmail.com</span></div>
+      <div>✉️<span><a href="mailto:loicmichaudpro@gmail.com">loicmichaudpro@gmail.com</a></span></div>
+      <div>🔗<span><a href="http://www.linkedin.com/in/loïc-michaud-a02547361" target="_blank" rel="noopener">linkedin.com/in/Loïc-Michaud</a></span></div>
     </div>
   </header>
 
