@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Loïc Michaud</title>
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.6; background: #f5f7fa; }
+    a { color: #1bbc9b; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { background: linear-gradient(180deg, #36a9e1 0%, #083e6c 100%); padding: 40px 20px; color: #fff; text-align: center; position: relative; }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.25em; opacity: 0.9; }
+
+    /* Photo hexagonale améliorée */
+    .pp {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+    .pp::before {
+      /* contour en dégradé */
+      content: "";
+      position: absolute;
+      top: -6px; left: -6px;
+      width: calc(100% + 12px);
+      height: calc(100% + 12px);
+      background: linear-gradient(135deg, #ffffff, #c0c0c0);
+      clip-path: inherit;
+      z-index: -1;
+    }
+    .pp img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) brightness(1.05) contrast(1.1);
+      transition: transform 0.4s ease;
+    }
+    .pp:hover img {
+      transform: scale(1.08);
+    }
+
+    header .contacts { position: absolute; right: 20px; top: 40px; text-align: right; }
+    header .contacts div { margin-bottom: 8px; display: flex; align-items: center; justify-content: flex-end; }
+    header .contacts div span { margin-left: 6px; font-size: 0.95em; }
+
+    /* Sections */
+    .section { margin-top: 40px; }
+    .section h2 { display: inline-block; background: #1bbc44; color: #fff; padding: 6px 12px; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); font-size: 1.5em; margin-bottom: 16px; }
+    .two-col { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+
+    /* Skills & loisirs */
+    .skill-list, .loisirs-list { list-style: none; margin-top: 12px; }
+    .skill-list li, .loisirs-list li { margin-bottom: 8px; }
+    .skill-category { margin-bottom: 20px; }
+
+    /* Experience & Education cards */
+    .card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 24px; }
+    .card h3 { margin-bottom: 6px; font-size: 1.25em; }
+    .card .meta { font-size: 0.9em; color: #555; margin-bottom: 12px; }
+    .card ul { list-style: disc inside; }
+
+    /* Footer spacing */
+    footer { margin-top: 60px; text-align: center; font-size: 0.85em; color: #888; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="photo">
+      <img src="pp.jpg" alt="Photo de Loïc Michaud">
+    </div>
+    <h1>Loïc&nbsp;Michaud</h1>
+    <p>Étudiant</p>
+    <div class="contacts">
+      <div>📞<span>+33 6 02 05 97 05</span></div>
+      <div>🏠<span>16 Place Marulaz, 25000 Besançon</span></div>
+      <div>✉️<span><a href="mailto:loicmichaudpro@gmail.com">loicmichaudpro@gmail.com</a></span></div>
+      <div>🔗<span><a href="http://www.linkedin.com/in/loïc-michaud-a02547361" target="_blank" rel="noopener">linkedin.com/in/Loïc-Michaud</a></span></div>
+    </div>
+  </header>
+
+  <div class="container two-col">
+    <!-- Sidebar -->
+    <aside>
+      <section class="section">
+        <h2>Skills</h2>
+        <div class="skill-category">
+          <strong>Soft Skills</strong>
+          <ul class="skill-list">
+            <li>Autonomie</li>
+            <li>Logique</li>
+            <li>Capacité d'adaptation</li>
+            <li>Communication</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <strong>Hard Skills</strong>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>C++</li>
+            <li>HTML &amp; CSS</li>
+            <li>Kotlin</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <strong>Langues</strong>
+          <ul class="skill-list">
+            <li>Français (natif)</li>
+            <li>Anglais (avancé)</li>
+            <li>Allemand (débutant)</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2>Loisirs</h2>
+        <ul class="loisirs-list">
+          <li>Vélo</li>
+          <li>Handball</li>
+          <li>Natation</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <section class="section">
+        <h2>Expériences professionnelles</h2>
+        <div class="card">
+          <h3>Informaticien (Stage 1ère année BTS)</h3>
+          <div class="meta">05/2024 – 06/2024 &nbsp;| &nbsp;Conseil départemental du Jura, Lons-le-Saunier, FR</div>
+          <ul>
+            <li>Assistance technique assurée auprès des agents des collèges, apportant un soutien quotidien en matière informatique.</li>
+            <li>Réalisation de diagnostics et interventions pour le dépannage du matériel informatique en panne ou endommagé.</li>
+            <li>Mise en place de nouveaux logiciels et services à travers le déploiement et la configuration sur divers dispositifs.</li>
+            <li>Remplacement et installation de matériel informatique obsolète ou défectueux afin d'assurer une continuité opérationnelle.</li>
+            <li>Collaboration avec les équipes locales pour garantir la conformité et l'efficacité des infrastructures technologiques déployées.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Éducation</h2>
+        <div class="card">
+          <h3>BTS CIEL</h3>
+          <div class="meta">09/2023 – 2025 &nbsp;| &nbsp;Lycée Jules Haag, Besançon</div>
+          <p>BTS Informatique et Réseaux (CIEL)</p>
+        </div>
+
+        <div class="card">
+          <h3>Baccalauréat général</h3>
+          <div class="meta">09/2020 – 06/2023 &nbsp;| &nbsp;Lycée Saint-Marie, Lons-le-Saunier</div>
+          <p>Option Physique, Mathématiques, SVT</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Loïc Michaud. Tous droits réservés.
+  </footer>
+</body>
+</html>
