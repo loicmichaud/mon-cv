@@ -1,0 +1,64 @@
+/* Reset & base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.6; background: #f5f7fa; }
+a { color: #1bbc9b; text-decoration: none; }
+.container { max-width: 960px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+header { background: linear-gradient(180deg, #36a9e1 0%, #083e6c 100%); padding: 40px 20px; color: #fff; text-align: center; position: relative; }
+header h1 { font-size: 3em; margin-bottom: 10px; }
+header p { font-size: 1.25em; opacity: 0.9; }
+
+/* Photo hexagonale améliorée (classe .pp) */
+.pp {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+.pp::before {
+  content: "";
+  position: absolute;
+  top: -6px; left: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  background: linear-gradient(135deg, #ffffff, #c0c0c0);
+  clip-path: inherit;
+  z-index: -1;
+}
+.pp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) brightness(1.05) contrast(1.1);
+  transition: transform 0.4s ease;
+}
+.pp:hover img {
+  transform: scale(1.08);
+}
+
+/* Contacts */
+header .contacts { position: absolute; right: 20px; top: 40px; text-align: right; }
+header .contacts div { margin-bottom: 8px; display: flex; align-items: center; justify-content: flex-end; }
+header .contacts div span { margin-left: 6px; font-size: 0.95em; }
+
+/* Sections */
+.section { margin-top: 40px; }
+.section h2 { display: inline-block; background: #1bbc44; color: #fff; padding: 6px 12px; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); font-size: 1.5em; margin-bottom: 16px; }
+.two-col { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+
+/* Skills & loisirs */
+.skill-list, .loisirs-list { list-style: none; margin-top: 12px; }
+.skill-list li, .loisirs-list li { margin-bottom: 8px; }
+.skill-category { margin-bottom: 20px; }
+
+/* Experience & Education cards */
+.card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 24px; }
+.card h3 { margin-bottom: 6px; font-size: 1.25em; }
+.card .meta { font-size: 0.9em; color: #555; margin-bottom: 12px; }
+.card ul { list-style: disc inside; }
+
+/* Footer spacing */
+footer { margin-top: 60px; text-align: center; font-size: 0.85em; color: #888; }
